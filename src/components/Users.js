@@ -6,7 +6,7 @@ import {
     Col
 } from 'reactstrap'
 
-function Users({user}){
+const Users = ({user}) => {
     return(
         <Row className="p-2 justify-content-center align-items-center border-bottom">
             <Col md="3" className="d-flex flex-column justify-content-center align-items-center">
