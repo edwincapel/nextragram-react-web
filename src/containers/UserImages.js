@@ -4,6 +4,7 @@ import {
     Row,
     Col
 } from 'reactstrap'
+import Image from "react-graceful-image";
 import axios from 'axios'
 
 export default class UserImages extends Component {
@@ -35,13 +36,13 @@ export default class UserImages extends Component {
                 <Col md="9" className="d-flex justify-content-center flex-wrap p-3">
                     {
                         images.map((image,index) =>
-                            <img 
+                            <Image 
                                 key={index} 
                                 src={image} 
                                 width={200} 
                                 height={200} 
                                 className="p-1">
-                            </img>
+                            </Image>
                         )
                     }
                 </Col>
