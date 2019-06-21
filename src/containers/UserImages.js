@@ -17,8 +17,6 @@ export default class UserImages extends Component {
     componentDidMount(){
         axios.get(`https://insta.nextacademy.com/api/v1/images?userId=${this.props.user_id}`)
         .then(result => {
-            console.log(result);
-            
           this.setState({
             images: result.data
           })
