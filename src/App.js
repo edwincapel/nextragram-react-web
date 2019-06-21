@@ -3,9 +3,7 @@ import axios from 'axios'
 import './App.scss';
 import Users from './components/Users'
 import { 
-  Container,
-  Col,
-  Row 
+  Container
 } from 'reactstrap';
 
 class App extends Component{
