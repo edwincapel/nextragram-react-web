@@ -3,19 +3,16 @@ import {
     Collapse,
     Navbar as NavbarBootstrap,
     NavbarToggler,
-    Nav,
-    NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem
+    Nav
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import LoginModal from './LoginModal'
 import SignUpModal from './SignUpModal'
+import AuthenticatedNavbar from '../components/AuthenticatedNavbar'
+import RequireAuthentication from '../components/RequireAuthentication'
 
-export default class Navbar extends Component {
+ class Navbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -45,6 +42,12 @@ export default class Navbar extends Component {
         })
     }
 
+    handleLogout = () => {
+        localStorage.removeItem('JWT');
+        localStorage.removeItem('current_user');
+        this.props.history.push('/')
+    }
+
     render() {
         const { loginModal, signUpModal } = this.state
 
@@ -57,37 +60,19 @@ export default class Navbar extends Component {
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
-                            <NavItem>
-                                <NavLink href="#" onClick={this.toggleLoginModal}>Login</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="#" onClick={this.toggleSignUpModal}>Sign Up</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-                            </NavItem>
-                            <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>
-                                    Options
-                                </DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem>
-                                        <Link 
-                                            to="/users/9"
-                                            className="text-decoration-none text-dark"
-                                        >
-                                            Test Profile
-                                        </Link>
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        Option 2
-                                    </DropdownItem>
-                                    <DropdownItem divider />
-                                    <DropdownItem>
-                                        Reset
-                                    </DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
+                            {
+                                !localStorage.getItem('JWT') && 
+                                <RequireAuthentication 
+                                    toggleLoginModal={this.toggleLoginModal} 
+                                    toggleSignUpModal={this.toggleSignUpModal}
+                                />  
+                            }
+                            {
+                                localStorage.getItem('JWT') && 
+                                <AuthenticatedNavbar 
+                                    handleLogout={this.handleLogout}
+                                />
+                            }
                         </Nav>
                     </Collapse>
                 </NavbarBootstrap>
@@ -97,3 +82,5 @@ export default class Navbar extends Component {
         );
     }
 }
+
+export default withRouter(Navbar)

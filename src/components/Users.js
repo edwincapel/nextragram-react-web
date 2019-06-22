@@ -19,7 +19,7 @@ const Users = ({user}) => {
                     height={125}>   
                 </Image>
                 <Link 
-                    to="/users/9" 
+                    to={`/users/${user.id}`} 
                     className="mt-1 text-decoration-none text-dark"
                 >
                     {user.username}
