@@ -29,7 +29,7 @@ export default class UserProfileHeader extends Component {
     render() {
         const { user } = this.state
 
-        if (user) {
+        if (user.profileImage) {
             return (
                 <>
                     <Row className="bg-light d-flex justify-content-center" style={{ height: "275px" }}>

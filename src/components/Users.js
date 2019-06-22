@@ -5,6 +5,8 @@ import {
     Row,
     Col
 } from 'reactstrap'
+import { Link } from 'react-router-dom';
+
 
 const Users = ({user}) => {
     return(
@@ -16,8 +18,12 @@ const Users = ({user}) => {
                     width={125} 
                     height={125}>   
                 </Image>
-                
-                <a className="mt-1">{user.username}</a>
+                <Link 
+                    to="/users/9" 
+                    className="mt-1 text-decoration-none text-dark"
+                >
+                    {user.username}
+                </Link>
             </Col>
             <UserImages 
                 user_id={user.id}

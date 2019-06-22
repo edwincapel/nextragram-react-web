@@ -18,7 +18,7 @@ export default class HomePage extends Component {
 
         return (
             users.map((user,index) => 
-                <Container fluid>
+                <Container fluid key={index}>
                     <Users user = { user } />
                 </Container>
             )
