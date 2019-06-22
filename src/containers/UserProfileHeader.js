@@ -6,8 +6,6 @@ import {
 } from 'reactstrap';
 import Image from 'react-graceful-image';
 
-
-
 export default class UserProfileHeader extends Component {
     constructor(props){
         super(props)

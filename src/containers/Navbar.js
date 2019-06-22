@@ -3,7 +3,6 @@ import {
     Collapse,
     Navbar as NavbarBootstrap,
     NavbarToggler,
-    NavbarBrand,
     Nav,
     NavItem,
     NavLink,
@@ -13,21 +12,42 @@ import {
     DropdownItem
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
-
+import LoginModal from './LoginModal'
+import SignUpModal from './SignUpModal'
 
 export default class Navbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isOpen: false
+            isOpen: false,
+            loginModal: false,
+            signUpModal: false,
         };
     }
+
     toggle = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
     }
+
+    toggleLoginModal = () => {
+        this.setState({
+            signUpModal: false,
+            loginModal: !this.state.loginModal
+        })
+    }
+
+    toggleSignUpModal = () => {
+        this.setState({
+            loginModal: false,
+            signUpModal: !this.state.signUpModal
+        })
+    }
+
     render() {
+        const { loginModal, signUpModal } = this.state
+
         return (
             <>
                 <NavbarBootstrap color="light" light expand="md">
@@ -38,7 +58,10 @@ export default class Navbar extends Component {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <NavLink href="/components/">Components</NavLink>
+                                <NavLink href="#" onClick={this.toggleLoginModal}>Login</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink href="#" onClick={this.toggleSignUpModal}>Sign Up</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
@@ -68,6 +91,8 @@ export default class Navbar extends Component {
                         </Nav>
                     </Collapse>
                 </NavbarBootstrap>
+                <LoginModal loginModal={loginModal} toggleLoginModal={this.toggleLoginModal} />
+                <SignUpModal signUpModal={signUpModal} toggleSignUpModal={this.toggleSignUpModal}/>
             </>
         );
     }
