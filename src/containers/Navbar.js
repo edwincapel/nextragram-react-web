@@ -12,6 +12,8 @@ import {
     DropdownMenu,
     DropdownItem
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
+
 
 export default class Navbar extends Component {
     constructor(props) {
@@ -27,9 +29,11 @@ export default class Navbar extends Component {
     }
     render() {
         return (
-            <div>
+            <>
                 <NavbarBootstrap color="light" light expand="md">
-                    <NavbarBrand href="/">Nextagram</NavbarBrand>
+                    <Link to="/" className="navbar-brand text-decoration-none">
+                        Nextagram
+                    </Link>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
@@ -45,7 +49,12 @@ export default class Navbar extends Component {
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
-                                        Option 1
+                                        <Link 
+                                            to="/users/9"
+                                            className="text-decoration-none text-dark"
+                                        >
+                                            Test Profile
+                                        </Link>
                                     </DropdownItem>
                                     <DropdownItem>
                                         Option 2
@@ -59,7 +68,7 @@ export default class Navbar extends Component {
                         </Nav>
                     </Collapse>
                 </NavbarBootstrap>
-            </div>
+            </>
         );
     }
 }

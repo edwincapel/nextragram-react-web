@@ -28,6 +28,7 @@ export default class UserImages extends Component {
     
     render(){
         const { images } = this.state
+        const { image_width, image_height } = this.props
         
         if (images.length > 0) {
             return(
@@ -37,8 +38,8 @@ export default class UserImages extends Component {
                             <Image 
                                 key={index} 
                                 src={image} 
-                                width={200} 
-                                height={200} 
+                                width={image_width} 
+                                height={image_height} 
                                 className="p-1">
                             </Image>
                         )

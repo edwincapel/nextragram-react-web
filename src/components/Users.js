@@ -19,7 +19,11 @@ const Users = ({user}) => {
                 
                 <a className="mt-1">{user.username}</a>
             </Col>
-            <UserImages user_id={user.id}/>
+            <UserImages 
+                user_id={user.id}
+                image_width={225}
+                image_height={225}  
+            />
         </Row>
     )
 }

@@ -43,6 +43,14 @@ class App extends Component{
               />
             }
           />
+          <Route
+            path="/users/:id"
+            render={props =>
+              <ProfilePage
+                {...props}
+              />
+            }
+          />
         </Switch>
       </>
     )
