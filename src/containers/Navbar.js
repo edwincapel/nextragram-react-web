@@ -91,8 +91,8 @@ export default class Navbar extends Component {
                         </Nav>
                     </Collapse>
                 </NavbarBootstrap>
-                <LoginModal loginModal={loginModal} toggleLoginModal={this.toggleLoginModal} />
-                <SignUpModal signUpModal={signUpModal} toggleSignUpModal={this.toggleSignUpModal}/>
+                <LoginModal loginModal={loginModal} toggleLoginModal={this.toggleLoginModal} toggleSignUpModal={this.toggleSignUpModal}/>
+                <SignUpModal signUpModal={signUpModal} toggleSignUpModal={this.toggleSignUpModal} toggleLoginModal={this.toggleLoginModal}/>
             </>
         );
     }
