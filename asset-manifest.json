@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/nextagram-react-web/static/css/main.57861297.chunk.css",
+    "main.js": "/nextagram-react-web/static/js/main.388f8266.chunk.js",
+    "main.js.map": "/nextagram-react-web/static/js/main.388f8266.chunk.js.map",
+    "runtime~main.js": "/nextagram-react-web/static/js/runtime~main.22f3a763.js",
+    "runtime~main.js.map": "/nextagram-react-web/static/js/runtime~main.22f3a763.js.map",
+    "static/css/2.266e55a5.chunk.css": "/nextagram-react-web/static/css/2.266e55a5.chunk.css",
+    "static/js/2.ac4151a2.chunk.js": "/nextagram-react-web/static/js/2.ac4151a2.chunk.js",
+    "static/js/2.ac4151a2.chunk.js.map": "/nextagram-react-web/static/js/2.ac4151a2.chunk.js.map",
+    "index.html": "/nextagram-react-web/index.html",
+    "precache-manifest.9eafec2230dc2788224929ad223f78df.js": "/nextagram-react-web/precache-manifest.9eafec2230dc2788224929ad223f78df.js",
+    "service-worker.js": "/nextagram-react-web/service-worker.js",
+    "static/css/2.266e55a5.chunk.css.map": "/nextagram-react-web/static/css/2.266e55a5.chunk.css.map",
+    "static/css/main.57861297.chunk.css.map": "/nextagram-react-web/static/css/main.57861297.chunk.css.map"
+  }
+}
