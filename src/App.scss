@@ -3,8 +3,16 @@ html,body,#root {
   width: 100%;
 }
 
-// Home Page
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
 
+// Home Page
 .users{
   height: 200px;
 }
