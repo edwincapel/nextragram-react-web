@@ -3,6 +3,7 @@ import axios from 'axios'
 import './App.scss';
 import { Switch, Route } from 'react-router-dom';
 
+import Navbar from './containers/Navbar'
 import HomePage from './pages/HomePage'
 import ProfilePage from './pages/ProfilePage'
 
@@ -31,6 +32,7 @@ class App extends Component{
 
     return (
       <>
+        <Navbar />
         <Switch>
           <Route exact 
             path="/"
