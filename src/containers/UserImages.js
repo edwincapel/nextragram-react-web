@@ -14,7 +14,6 @@ export default class UserImages extends Component {
             images: []
         }
     }
-
     componentDidMount(){
         axios.get(`https://insta.nextacademy.com/api/v1/images?userId=${this.props.user_id}`)
         .then(result => {
@@ -23,11 +22,10 @@ export default class UserImages extends Component {
           })
         })
         .catch(error => {
-          // If unsuccessful, we notify users what went wrong
           console.log('ERROR: ', error)
         })
     }
-
+    
     render(){
         const { images } = this.state
         
@@ -50,10 +48,10 @@ export default class UserImages extends Component {
         }
 
         return(
-            <Col md="9" style={{height:200}} className="">
-                <Container className="h-100">
+            <Col md="9" style={{height:200}} className="p-0">
+                <Container fluid className="h-100">
                     <Row className="h-100 justify-content-center align-items-center">
-                        <Col md="10" className="h-75 bg-light d-flex justify-content-center align-items-center">
+                        <Col md="10" className="h-75 bg-light d-flex justify-content-center align-items-center p-0">
                             <h6>User has no Images</h6>
                         </Col>
                     </Row>

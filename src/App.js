@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
 import axios from 'axios'
 import './App.scss';
-import Users from './components/Users'
-import { 
-  Container
-} from 'reactstrap';
+import { Switch, Route } from 'react-router-dom';
+
+import HomePage from './pages/HomePage'
+import ProfilePage from './pages/ProfilePage'
 
 class App extends Component{
   constructor(props){
@@ -31,13 +31,17 @@ class App extends Component{
 
     return (
       <>
-        <Container fluid className="h-100">
-          {
-            users.map((user, index) => 
-              <Users key={index} user={user}/>
-            )
-          }
-        </Container>
+        <Switch>
+          <Route exact 
+            path="/"
+            render={props => 
+              <HomePage 
+                {...props}
+                users = {users}
+              />
+            }
+          />
+        </Switch>
       </>
     )
   }
