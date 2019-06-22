@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 import Navbar from './containers/Navbar'
 import HomePage from './pages/HomePage'
 import ProfilePage from './pages/ProfilePage'
+import ShowImage from './pages/ShowImage'
 
 class App extends Component{
   constructor(props){
@@ -28,7 +29,7 @@ class App extends Component{
   }
 
   render(){
-    const {users} = this.state
+    const {users} = this.state    
 
     return (
       <>
@@ -47,6 +48,14 @@ class App extends Component{
             path="/users/:id"
             render={props =>
               <ProfilePage
+                {...props}
+              />
+            }
+          />
+          <Route
+            path="/image"
+            render={props =>
+              <ShowImage
                 {...props}
               />
             }

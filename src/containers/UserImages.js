@@ -6,6 +6,8 @@ import {
 } from 'reactstrap'
 import Image from "react-graceful-image";
 import axios from 'axios'
+import { Link } from 'react-router-dom';
+
 
 export default class UserImages extends Component {
     constructor(props){
@@ -35,13 +37,20 @@ export default class UserImages extends Component {
                 <Col md="9" className="d-flex justify-content-center flex-wrap p-3">
                     {
                         images.map((image,index) =>
-                            <Image 
-                                key={index} 
-                                src={image} 
-                                width={image_width} 
-                                height={image_height} 
-                                className="p-1">
-                            </Image>
+                            <Link
+                                to={{
+                                    pathname: "/image",
+                                    img: image
+                                }}
+                                key={index}
+                            >
+                                <Image
+                                    src={image}
+                                    width={image_width}
+                                    height={image_height}
+                                    className="p-1">
+                                </Image>
+                            </Link>
                         )
                     }
                 </Col>
